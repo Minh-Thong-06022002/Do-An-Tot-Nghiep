@@ -12,6 +12,7 @@
                 <router-view></router-view>
             </div>
             <FooterView />
+            <ChatBox />
         </div>
     </main>
 </template>

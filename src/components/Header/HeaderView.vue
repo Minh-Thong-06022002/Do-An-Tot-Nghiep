@@ -8,17 +8,17 @@
     import CartView from './CartView.vue';
 import { ref } from 'vue';
 import SearchView from './SearchView.vue';
+import FaUser from '@/assets/icons/FaUser.vue';
 
-    const {infos} = useSession()
-    const openSearch = ref<boolean>(false)
+const { infos } = useSession();
+const openSearch = ref<boolean>(false);
 
-    const setOpenSearch = (value: boolean) => {
-        openSearch.value = value
-    }
-    const handleOpenSearch = () => {
-        openSearch.value = true
-    }
-
+const setOpenSearch = (value: boolean) => {
+    openSearch.value = value;
+};
+const handleOpenSearch = () => {
+    openSearch.value = true;
+};
 </script>
 
 <template>
@@ -38,6 +38,7 @@ import SearchView from './SearchView.vue';
                     <div v-if="infos.user && infos.user.avatar" class="user-avatar">
                         <img :src="infos.user.avatar" alt="avatar user" />
                     </div>
+                    <FaUser v-else />
                     <!-- <FaUser v-else fontSize={'2.5rem'} /> -->
             </RouterLink>
             <CartView />
@@ -46,5 +47,5 @@ import SearchView from './SearchView.vue';
 </template>
 
 <style lang="scss">
-    @import './Header.scss'
+    @import './Header.scss';
 </style>

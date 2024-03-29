@@ -4,13 +4,13 @@ import cat1 from '@/assets/images/banner_cat_1.jpg';
 import cat2 from '@/assets/images/banner_cat_2.jpg';
 import SlidersView from './SlidersView.vue';
 import FlashView from './FlashView.vue';
-import DogItem from './DogItem.vue';
 import CatItem from './CatItem.vue';
 import FoodItem from './FoodItem.vue';
 import UseFul from './UseFul.vue';
 import { onMounted } from 'vue';
 
 import { socketContext } from '@/context/SocketContext';
+import DogItem from './DogItem.vue';
 
 onMounted(() => {
     document.title = 'Trang chủ | Petshop chất lượng số 1 Việt Nam!';

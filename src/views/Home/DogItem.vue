@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import { reactive } from 'vue';
 import logo from '@/assets/images/dog_home_logo.png';
-import img from '@/assets/images/dog_item_3.jpg';
 import TitleView from '@/components/TitleView.vue';
-import CardItem from '@/components/CardItem.vue';
 import ButtonView from '@/components/ButtonView.vue';
 import routesConfig from '@/config/routes';
 
     import { useDataInHome } from '@/hooks/useDataInHome';
+import CardItem from '@/components/CardItem.vue';
 
 const { values } = useDataInHome('products/products/home?type=dog');
 </script>

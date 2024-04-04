@@ -94,7 +94,7 @@ const handleSubmit = () => {
     } else if (props.type === 'update') {
         const dataPost: TPostUpdateAddress = {
             full_name: name.value,
-            id: props.data?.id ?? 0,
+            id: props.data.data?.id ?? 0,
             phone_number: phone.value,
             main_address: cityDetail.value,
             detail_address: detail.value,
@@ -114,6 +114,13 @@ const handleSubmit = () => {
                     socketContext.emit('update-address', {
                         id: infos.user?.id,
                         status: 'success',
+                    });
+                } else {
+                    toast.add({
+                        severity: 'error',
+                        summary: 'Có lỗi',
+                        detail: 'Xảy ra lỗi!!!',
+                        life: 3000,
                     });
                 }
             })

@@ -75,6 +75,7 @@ export class ApiService {
         const route = {
             addOrder: 'orders/create',
             getOrderById: (userId: string) => `orders/get-order-id/${userId}`,
+            updateStatus: (orderId: string) => `orders/status/${orderId}`,
         };
 
         return {
@@ -90,6 +91,12 @@ export class ApiService {
                         Authorization: 'Bearer ' + token,
                     },
                 }),
+                updateStatus: (orderId: string, data: any, token: string) =>
+                    AxiosClientApi.put(route.updateStatus(orderId), data, {
+                        headers: {
+                            Authorization: 'Bearer ' + token,
+                        },
+                    }),
             route,
         };
     }

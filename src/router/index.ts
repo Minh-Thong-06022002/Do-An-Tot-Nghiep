@@ -28,6 +28,7 @@ import ProfileNoti from '@/views/ProfileNoti.vue';
 import ProfileFriends from '@/views/ProfileFriends.vue';
 import ProfileUser from '@/views/ProfileUser.vue';
 import Orders from '@/views/Orders.vue';
+import DetailNew from '@/views/DetailNew.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -151,6 +152,11 @@ const router = createRouter({
                     component: ProfileUser,
                     name: 'profile-user',
                     path: routesConfig.profile_user,
+                },
+                {
+                    component: DetailNew,
+                    name: 'detail-new',
+                    path: routesConfig.newsDetail,
                 },
             ],
         },

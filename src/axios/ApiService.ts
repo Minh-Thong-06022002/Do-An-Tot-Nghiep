@@ -51,6 +51,7 @@ export class ApiService {
         const route = {
             getCartsByUserId: (userId: string) => `carts/cart-by-customer/${userId}`,
             addToCart: 'carts/add-to-cart',
+            deleteFromCart: (cartId: string) => `carts/delete-cart/${cartId}`,
         };
 
         return {
@@ -66,6 +67,12 @@ export class ApiService {
                         Authorization: 'Bearer ' + token,
                     },
                 }),
+                deleteFromCart: (cartId: string, token: string) =>
+                    AxiosClientApi.delete(route.deleteFromCart(cartId), {
+                        headers: {
+                            Authorization: 'Bearer ' + token,
+                        },
+                    }),
 
             route,
         };
@@ -75,6 +82,7 @@ export class ApiService {
         const route = {
             addOrder: 'orders/create',
             getOrderById: (userId: string) => `orders/get-order-id/${userId}`,
+            deleteOrderById: (orderId: string) => `orders/delete/${orderId}`,
             updateStatus: (orderId: string) => `orders/status/${orderId}`,
         };
 
@@ -91,6 +99,12 @@ export class ApiService {
                         Authorization: 'Bearer ' + token,
                     },
                 }),
+                deleteOrderById: (userId: string, token: string) =>
+                    AxiosClientApi.delete(route.deleteOrderById(userId), {
+                        headers: {
+                            Authorization: 'Bearer ' + token,
+                        },
+                    }),
                 updateStatus: (orderId: string, data: any, token: string) =>
                     AxiosClientApi.put(route.updateStatus(orderId), data, {
                         headers: {

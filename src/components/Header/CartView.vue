@@ -9,6 +9,7 @@ import ButtonView from '../ButtonView.vue';
 import { ApiService } from '@/axios/ApiService';
 import type { T_Cart, T_Categorys } from '@/model';
 import { formatVND } from '@/Helper';
+import { socketContext, stateEvents } from '@/context/SocketContext';
 
 const apiService = new ApiService();
 
@@ -45,6 +46,23 @@ onMounted(() => {
             .catch((err) => console.error(err));
     }
 });
+
+onMounted(() => {
+    if(stateEvents.connected) {
+        socketContext.on('add-to-cart-give', () => {
+                    if (infos.isAuth) {
+                        apiService.carts
+                            .getCartsByUserId(`${infos.user?.id}`, infos.user?.token ?? '')
+                            .then((res: T_Categorys) => {
+                                if (res.message === 'success') {
+                                    data.data = (res.data);
+                                }
+                            })
+                            .catch((err) => console.error(err));
+                    }
+                });
+    }
+})
 </script>
 
 <template>

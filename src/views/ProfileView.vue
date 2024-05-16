@@ -49,7 +49,7 @@ const handleLogout = () => {
     confirm.require({
         header: 'Đăng xuất',
         message: 'Bạn có chắc chắn muốn đăng xuất không?',
-        acceptLabel: 'Dồng ý',
+        acceptLabel: 'Đồng ý',
         rejectLabel: 'Hủy bỏ',
         accept: () => {
             setSessions(false, {});

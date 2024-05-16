@@ -130,7 +130,7 @@ const handleClearError = (name: string) => {
                         <label htmlFor="password">Mật khẩu: </label>
                         <input
                             id="password"
-                            type="text"
+                            type="password"
                             placeholder="Password..."
                             v-model="password"
                             @input="

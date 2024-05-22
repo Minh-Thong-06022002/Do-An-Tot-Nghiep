@@ -62,7 +62,7 @@ onMounted(() => {
                 }"
                 class="mySwiper"
             >
-            <swiper-slide v-for="item in data" :key="item.id">
+                <swiper-slide v-for="item in data" :key="item.id">
                     <RouterLink :to="`/news/detail/${item.id}`" class="wrapper-useful-item">
                         <div class="avatar">
                             <img :src="item.preview_url" alt="preview avatar" />

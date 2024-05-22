@@ -1,8 +1,7 @@
-
 <script setup lang="ts">
-    import ChatBox from '@/components/ChatBox.vue';
+import ChatBox from '@/components/ChatBox.vue';
 import FooterView from '@/components/Footer/FooterView.vue';
-    import HeaderView from '@/components/Header/HeaderView.vue';
+import HeaderView from '@/components/Header/HeaderView.vue';
 </script>
 
 <template>

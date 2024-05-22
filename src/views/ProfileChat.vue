@@ -3,7 +3,7 @@ import BiSearch from '@/assets/icons/BiSearch.vue';
 import ArrowIcon from '@/assets/icons/ArrowIcon.vue';
 import HiMenu from '@/assets/icons/HiMenu.vue';
 import IoSend from '@/assets/icons/IoSend.vue';
-import img from '@/assets/images/beyeu.jpg';
+import img from '@/assets/images/useravatar.jpg';
 import { ApiService } from '@/axios/ApiService';
 import Loading from '@/components/Loading.vue';
 import { socketContext, stateEvents } from '@/context/SocketContext';

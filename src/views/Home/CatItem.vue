@@ -6,7 +6,7 @@ import TitleView from '@/components/TitleView.vue';
 import CardItemZoomInLeft from '@/components/CardItemZoomInLeft.vue';
 import routesConfig from '@/config/routes';
 
-    import { useDataInHome } from '@/hooks/useDataInHome';
+import { useDataInHome } from '@/hooks/useDataInHome';
 import ButtonView from '@/components/ButtonView.vue';
 
 const { values } = useDataInHome('products/products/home?type=cat');

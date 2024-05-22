@@ -53,6 +53,7 @@ const handleLogout = () => {
         rejectLabel: 'Hủy bỏ',
         accept: () => {
             setSessions(false, {});
+            localStorage.removeItem('userDataMT');
             toast.add({
                 severity: 'success',
                 detail: 'Đăng xuất thành công!',

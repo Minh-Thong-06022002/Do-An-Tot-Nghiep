@@ -20,7 +20,7 @@ const data = ref<Orders[]>([]);
 const loading = ref<boolean>(true);
 const apiService = new ApiService();
 const isDetail = ref<boolean>(false);
-    const toast = useToast();
+const toast = useToast();
 const confirm = useConfirm();
 const dataDetail = ref<Orders>();
 const { infos } = useSession();
@@ -210,9 +210,7 @@ onMounted(() => {
                             </p>
                             <p class="price-item-order">Trạng thái: {{ getNameFromStatus(item.orders_status) }}</p>
                             <div class="status-order-item">
-                                <ButtonView small="true">
-                                    Đã nhận được hàng
-                                </ButtonView>
+                                <ButtonView small="true"> Đã nhận được hàng </ButtonView>
                             </div>
                         </div>
                         <p v-else class="no-orders-mes">Bạn chưa có đơn hàng nào đang giao!</p>
@@ -250,9 +248,7 @@ onMounted(() => {
                             </p>
                             <p class="price-item-order">Trạng thái: {{ getNameFromStatus(item.orders_status) }}</p>
                             <div class="status-order-item">
-                                <ButtonView small="true">
-                                    Đã nhận được hàng
-                                </ButtonView>
+                                <ButtonView small="true"> Đã nhận được hàng </ButtonView>
                             </div>
                         </div>
                         <p v-else class="no-orders-mes">Bạn chưa có đơn hàng nào đã hoàn thành!</p>
@@ -290,9 +286,7 @@ onMounted(() => {
                             </p>
                             <p class="price-item-order">Trạng thái: {{ getNameFromStatus(item.orders_status) }}</p>
                             <div class="status-order-item">
-                                <ButtonView :disabled="true" small="true">
-                                    Đã nhận được hàng
-                                </ButtonView>
+                                <ButtonView :disabled="true" small="true"> Đã nhận được hàng </ButtonView>
                             </div>
                         </div>
                         <p v-else class="no-orders-mes">Bạn chưa có đơn hàng nào đã hủy!</p>
@@ -330,9 +324,7 @@ onMounted(() => {
                             </p>
                             <p class="price-item-order">Trạng thái: {{ getNameFromStatus(item.orders_status) }}</p>
                             <div class="status-order-item">
-                                <ButtonView small="true">
-                                    Đã nhận được hàng
-                                </ButtonView>
+                                <ButtonView small="true"> Đã nhận được hàng </ButtonView>
                             </div>
                         </div>
                         <p v-else class="no-orders-mes">Bạn chưa có đơn hàng nào hoàn tiền!</p>

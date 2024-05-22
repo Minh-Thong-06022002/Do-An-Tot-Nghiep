@@ -48,21 +48,34 @@ onMounted(() => {
 });
 
 onMounted(() => {
-    if(stateEvents.connected) {
+    socketContext.on('connect', () => {
         socketContext.on('add-to-cart-give', () => {
-                    if (infos.isAuth) {
-                        apiService.carts
-                            .getCartsByUserId(`${infos.user?.id}`, infos.user?.token ?? '')
-                            .then((res: T_Categorys) => {
-                                if (res.message === 'success') {
-                                    data.data = (res.data);
-                                }
-                            })
-                            .catch((err) => console.error(err));
-                    }
-                });
-    }
-})
+            if (infos.isAuth) {
+                apiService.carts
+                    .getCartsByUserId(`${infos.user?.id}`, infos.user?.token ?? '')
+                    .then((res: T_Categorys) => {
+                        if (res.message === 'success') {
+                            data.data = res.data;
+                        }
+                    })
+                    .catch((err) => console.error(err));
+            }
+        });
+
+        socketContext.on('delete-to-cart-give', () => {
+            if (infos.isAuth) {
+                apiService.carts
+                    .getCartsByUserId(`${infos.user?.id}`, infos.user?.token ?? '')
+                    .then((res: T_Categorys) => {
+                        if (res.message === 'success') {
+                            data.data = res.data;
+                        }
+                    })
+                    .catch((err) => console.error(err));
+            }
+        });
+    });
+});
 </script>
 
 <template>
@@ -243,5 +256,4 @@ onMounted(() => {
         }
     }
 }
-
 </style>

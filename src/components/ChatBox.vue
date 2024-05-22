@@ -10,6 +10,7 @@ import BiHappy from '@/assets/icons/BiHappy.vue';
 import BsFillImage from '@/assets/icons/BsFillImage.vue';
 import TypeAdmin from '@/components/TypeAdmin.vue';
 import { socketContext } from '@/context/SocketContext';
+import { useSession } from '@/stores';
 
 type TMes = {
     role: string;
@@ -18,6 +19,7 @@ type TMes = {
     name: string;
 };
 
+const { infos } = useSession();
 const open = ref<boolean>(false);
 const inputRef = ref<any>();
 const lassMessageRef = ref<any>();
@@ -104,7 +106,7 @@ const handleSubmit = () => {
     if (value.value.trim().length > 0) {
         socketContext.emit('messageToAdmin', {
             id: socketContext.id,
-            name: 'User Guest',
+            name: `${infos.user.name ?? 'User Guest'}`,
             role: 'user',
             message: value.value,
         });
@@ -113,7 +115,7 @@ const handleSubmit = () => {
         messages.data.push({
             message: value.value,
             role: 'user',
-            name: 'User Guest',
+            name: `${infos.user.name ?? 'User Guest'}`,
             id: socketContext.id,
         });
         value.value = '';

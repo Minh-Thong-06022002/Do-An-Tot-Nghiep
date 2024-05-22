@@ -1,4 +1,4 @@
-import routesConfig from "@/config/routes";
+import routesConfig from '@/config/routes';
 
 type TData = {
     id: number;

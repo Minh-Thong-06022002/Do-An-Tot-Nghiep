@@ -9,7 +9,7 @@ import { FilterCondition, filterByProduct, filterItemByPrice, initPrice, useSess
 import Paginator from 'primevue/paginator';
 import { onMounted, ref, watch } from 'vue';
 
-const { isFilterProduct,setIsFilterProduct } = filterByProduct();
+const { isFilterProduct, setIsFilterProduct } = filterByProduct();
 
 onMounted(() => {
     document.title = 'Phụ kiện | Petshop chất lượng số 1 Việt Nam!';

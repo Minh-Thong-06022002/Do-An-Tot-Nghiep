@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import {onBeforeMount} from 'vue'
-import AOS from 'aos'
-import { RouterView } from 'vue-router'
+import { onBeforeMount, onMounted } from 'vue';
+import AOS from 'aos';
+import { RouterView } from 'vue-router';
 import ConfirmToastContext from './context/ConfirmToastContext.vue';
+import { useSession } from './stores';
+
+const { setSessions } = useSession();
 
 onBeforeMount(() => {
     AOS.init({
@@ -12,10 +15,24 @@ onBeforeMount(() => {
         once: true,
     });
 });
+
+onMounted(() => {
+    const item = localStorage.getItem('userDataMT');
+
+    if (item) {
+        const data = JSON.parse(item);
+
+        console.log(data);
+
+        if (data.isAuth) {
+            setSessions(data.isAuth, data.user);
+        }
+    }
+});
 </script>
 
 <template>
-  <ConfirmToastContext>
-    <RouterView />
-  </ConfirmToastContext>
+    <ConfirmToastContext>
+        <RouterView />
+    </ConfirmToastContext>
 </template>

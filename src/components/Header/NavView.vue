@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import NavItem from './NavItem.vue';
 import data from './data';
-
 </script>
 
 <template>

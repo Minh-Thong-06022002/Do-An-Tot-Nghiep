@@ -18,6 +18,7 @@ import type { Address, T_AddOrder, T_Payment, T_ProfileAddress } from '@/model';
 import { useRouter } from 'vue-router';
 import PrivateRoute from '@/components/PrivateRoute.vue';
 import PaymentScreen from '../components/PaymentScreen.vue';
+import { socketContext } from '@/context/SocketContext';
 const { items, setData } = itemsOrder();
 const router = useRouter();
 const timer = ref<any>();
@@ -36,7 +37,7 @@ const voucher = ref<{
 });
 const addresses = ref<Address[]>([]);
 const addressChoose = ref<Address>();
-    const paymentChoose = ref<{
+const paymentChoose = ref<{
     id: number;
     method: string;
     content: string;
@@ -141,6 +142,10 @@ const handleDeleteFromCart = (id: number[]) => {
                 .then((res: { message: string; statusCode: number }) => {
                     if (res.message === 'success') {
                         //////////////////
+                        socketContext.emit('delete-to-cart', {
+                            id: id,
+                            status: 'success',
+                        });
                         console.log('da xoa thanh cong san pham da mua trong gio hang');
                     }
                 })

@@ -167,7 +167,7 @@ const handleChat = () => {
 </script>
 
 <template>
-    <PrivateRoute :redirect="routesConfig.profile"> 
+    <PrivateRoute :redirect="routesConfig.profile">
         <div class="profile-user">
             <div class="profile-user-wrapper">
                 <div class="wall-image"></div>
@@ -177,7 +177,7 @@ const handleChat = () => {
                             <img :src="data.data.avatarPath" alt="data.userName" />
                         </div>
                     </div>
-                    <h3>{{data.data.userName}}</h3>
+                    <h3>{{ data.data.userName }}</h3>
                     <div class="actions">
                         <template v-if="data.data.isFriend">
                             <ButtonView medium="true">Bạn bè</ButtonView>
@@ -197,9 +197,7 @@ const handleChat = () => {
                         >
                         <ButtonView medium="true" v-else @click="handleAddNewInviteFriend">Thêm bạn bè</ButtonView>
                     </div>
-                    <p class="description">
-                        description user hehehe hehehe hehehe hehehe hehehe hehehe hehehe
-                    </p>
+                    <p class="description">description user hehehe hehehe hehehe hehehe hehehe hehehe hehehe</p>
                 </div>
             </div>
         </div>

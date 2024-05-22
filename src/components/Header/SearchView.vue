@@ -98,7 +98,7 @@ const handleSearch = (e: any) => {
                 <template v-if="fakeData.data.length > 0">
                     <RouterLink
                         v-for="item in fakeData.data"
-                        to=""
+                        :to="`/product/${item.type}/${item.id}`"
                         @click="() => props.setOpen(false)"
                         :key="item.id"
                         class="result-item"
@@ -109,7 +109,7 @@ const handleSearch = (e: any) => {
                             </div>
                             <p class="name-item">{{ item.name }}</p>
                         </div>
-                        <p class="price-item">{{ formatVND.format(item.price)}}</p>
+                        <p class="price-item">{{ formatVND.format(item.price) }}</p>
                     </RouterLink>
                 </template>
                 <p v-else class="message-noti">{{ message }}</p>
